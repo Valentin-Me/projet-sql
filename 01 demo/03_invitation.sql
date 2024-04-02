@@ -9,7 +9,7 @@ CREATE TABLE invPersonne(
     prenom VARCHAR(50) NOT NULL, 
     nom VARCHAR(50) NOT NULL, 
     age TINYINT(1) NOT NULL, 
-    date_inscription DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+    date_inscription DATE NOT NULL DEFAULT CURRENT_DATE, 
     status boolean, 
     type ENUM ('membre','non membre') NOT NULL DEFAULT 'non membre', 
     description text, 
