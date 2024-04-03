@@ -5,10 +5,10 @@
     SELECT MIN(`salaire_annuel`) FROM `invpersonne`;
 
 --afficher le nom de la personne du plus petit salaire
-    SELECT `nom` FROM `invpersonne` WHERE `salaire_annuel`= (SELECT MIN(`salaire_annuel`)FROM `invpersonne`);
+    SELECT salaire_annuel, prenom, nom FROM `invpersonne` WHERE `salaire_annuel`= (SELECT MIN(`salaire_annuel`)FROM `invpersonne`);
 
 --afficher le nom de la personne du plus gros salaire
-    SELECT `nom` FROM `invpersonne` WHERE `salaire_annuel`= (SELECT MAX(`salaire_annuel`)FROM `invpersonne`);
+    SELECT salaire_annuel, prenom, nom FROM `invpersonne` WHERE `salaire_annuel`= (SELECT MAX(`salaire_annuel`)FROM `invpersonne`);
 
 --afficher le salaire moyen
     SELECT AVG(`salaire_annuel`) FROM `invpersonne`;
