@@ -16,10 +16,12 @@
 
 -- 3 - afficher le chiffre d'affaire par client
  SELECT client.nom, SUM(facture.total) 
+
  FROM `client` 
  LEFT JOIN projet ON client.id = projet.client_id 
  LEFT JOIN devis ON projet.id = devis.projet_id 
- LEFT JOIN facture ON devis.id = facture.devis_id 
+ LEFT JOIN facture ON devis.id = facture.devis_id;
+
  GROUP BY (client.id);
 
 -- 4 - afficher le CA total
