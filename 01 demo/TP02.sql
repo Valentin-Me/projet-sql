@@ -10,20 +10,22 @@
 --afficher le nom de la personne du plus gros salaire
     SELECT `nom` FROM `invpersonne` WHERE `salaire_annuel`= (SELECT MAX(`salaire_annuel`)FROM `invpersonne`);
 
---afficher le CA moyen
-    SELECT MAX(`salaire_annuel`) FROM `invpersonne`;
+--afficher le salaire moyen
+    SELECT AVG(`salaire_annuel`) FROM `invpersonne`;
 
 --afficher le nombre de client
-    SELECT MAX(`salaire_annuel`) FROM `invpersonne`;
+    SELECT COUNT(`type`) FROM `invpersonne` WHERE `type` = "membre";
 
 --proposer une requete avec BETWEEN
-    SELECT MAX(`salaire_annuel`) FROM `invpersonne`;
+    SELECT `nom`FROM `invpersonne` WHERE `age` BETWEEN 60 AND 65;
 
 --proposer une requete avec UCASE(), UPPER(),LCASE(),LOWER()
-    SELECT MAX(`salaire_annuel`) FROM `invpersonne`;
+    SELECT UPPER(`nom`) FROM `invpersonne`;
+    SELECT LOWER(`nom`) FROM `invpersonne`;
 
 --proposer une requete avec LIKE '%..%'
-    SELECT MAX(`salaire_annuel`) FROM `invpersonne`;
+    SELECT `prenom` FROM `invpersonne` WHERE `prenom` LIKE "%or%";
 
 --Trier par age les membres
-    SELECT MAX(`salaire_annuel`) FROM `invpersonne`;
+    SELECT `nom` FROM `invpersonne` ORDER BY `age` ASC;
+    SELECT `nom` FROM `invpersonne` ORDER BY `age` DESC;
