@@ -6,7 +6,7 @@
  INNER JOIN client ON projet.client_id = client.id;
 
 -- 2 - Afficher le nombre de factures par client afficher 0 factures si il n'y a pas de factures
- SELECT client.nom
+ SELECT client.nom,
  COUNT(facture.id) 
  FROM `client` 
  LEFT JOIN projet ON client.id = projet.client_id 
