@@ -11,7 +11,7 @@
    WHERE clients.cpo LIKE "44%";
 
 -- d
-   SELECT fiches.noFic, clients.nom, clients.prenom, articles.refart, articles.designation, lignesfic.depart, lignesfic.retour, tarifs.prixJour, tarifs.prixJour*DATEDIFF(lignesfic.retour,lignesfic.depart) 
+   SELECT fiches.noFic, clients.nom, clients.prenom, articles.refart, articles.designation, lignesfic.depart, lignesfic.retour, tarifs.prixJour, COALESCE(tarifs.prixJour*DATEDIFF(lignesfic.retour,lignesfic.depart),tarifs.prixJour*(DATEDIFF(NOW(),lignesfic.depart)+1)) AS Montant
    FROM clients 
    INNER JOIN fiches ON clients.noCli = fiches.noCli 
    INNER JOIN lignesFic ON fiches.noFic = lignesFic.noFic 
