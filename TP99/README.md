@@ -148,17 +148,17 @@
 
 # Partie 1
 
--- a
+-- a - Liste des clients (toutes les informations) dont le nom commence par un "D"
 ```mysql
    SELECT * FROM clients WHERE nom LIKE "D%";
 ```
 
--- b
+-- b - Nom et prénom de tous les clients
 ```mysql
    SELECT nom, prenom FROM clients;
 ```
 
--- c
+-- c - liste des fiches (n°, état) pour les clients (nom, prénom) qui habitent en Loire Atlantique (44)
 ```mysql
    SELECT fiches.noFic, etat, clients.nom, clients.prenom 
    FROM clients 
@@ -166,7 +166,7 @@
    WHERE clients.cpo LIKE "44%";
 ```
 
--- d
+-- d - Détail de la fiche n°1002
 ```mysql
    SELECT fiches.noFic, clients.nom, clients.prenom, articles.refart, articles.designation, lignesfic.depart, lignesfic.retour, tarifs.prixJour, COALESCE(tarifs.prixJour*DATEDIFF(lignesfic.retour,lignesfic.depart),tarifs.prixJour*(DATEDIFF(NOW(),lignesfic.depart)+1)) AS Montant
    FROM clients 
@@ -178,7 +178,7 @@
    WHERE fiches.noFic = 1002;
 ```
 
--- e
+-- e - Prix journalier moyen de location par gamme
 ```mysql
    SELECT gammes.libelle, AVG(tarifs.prixJour) 
    FROM gammes 
@@ -187,7 +187,7 @@
    GROUP BY gammes.libelle;
 ```
 
--- f
+-- f - Liste des articles qui ont été loués au moins trois fois
 ```mysql
    SELECT articles.refart, articles.designation, COUNT(lignesfic.noLig) AS nbLocation
    FROM articles
@@ -196,29 +196,29 @@
    HAVING nbLocation >= 3;
 ```
 
--- g
+-- g - Détail de la fiche n°1002 avec le total
 ```mysql
 ```
 
 --Partie facultative
 
--- h
+-- h - Grille des tarifs
 ```mysql
 ```
 
--- i
+-- i - Liste des locations de la catégorie SURF
 ```mysql
 ```
 
--- j
+-- j - Calcul du nombre moyen d'articles loués par fiche de location
 ```mysql
 ```
 
--- k
+-- k - Calcul du nombre de fiches de location établies pour les catégories de location Ski alpin, Surf et Patinette
 ```mysql
 ```
 
--- l
+-- l - Calcul du montant moyen des fiches de location
 ```mysql
 ```
 
