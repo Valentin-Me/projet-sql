@@ -16,7 +16,7 @@
    INNER JOIN fiches ON clients.noCli = fiches.noCli 
    INNER JOIN lignesFic ON fiches.noFic = lignesFic.noFic 
    INNER JOIN articles ON lignesFic.refart = articles.refart 
-   INNER JOIN grilletarifs ON articles.codeCate = grilletarifs.codeCate 
+   INNER JOIN grilletarifs ON articles.codeCate = grilletarifs.codeCate AND articles.codeGam = grilletarifs.codeGam
    INNER JOIN tarifs ON grilletarifs.codeTarif = tarifs.codeTarif 
    WHERE fiches.noFic = 1002;
 
